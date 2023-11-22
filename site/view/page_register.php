@@ -1,4 +1,4 @@
-<div class="container vh-100 ">
+<div class="container vh-250 ">
   <h2 class="text-center">ĐĂNG KÝ</h2>
   <form method="post" action="" enctype="multipart/form-data" class="form p-3">
   <div class="row d-flex justify-content-center align-items-center ">
