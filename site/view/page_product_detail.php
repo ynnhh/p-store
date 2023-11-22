@@ -66,7 +66,8 @@
                         </div>
                     </div>
             <input type=submit class="btn btn-danger" name="product_add" value="Thuê ngay">
-            <a href="?mod=cart&act=add&id=<?=$sp['MaSanPham']?>" class="btn btn-danger">Thuê ngay</a>
+            <!-- <input type=submit class="btn btn-primary" name="product_addCart"  value="Thêm vào giỏ hàng"> -->
+            <a href="?mod=cart&act=add&id=<?=$sp['MaSanPham']?>" class="btn btn-danger">Thêm vào giỏ hàng</a>
             <!-- <a href="" class="btn btn-danger"><i class="bi bi-cart"></i> Thuê ngay</a>
             <a href="" class="btn btn-dark"><i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng</a> -->
             </form>
