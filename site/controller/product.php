@@ -5,7 +5,8 @@
     if (isset($act)) {
         switch ($act) {
             case 'detail':
-                $product_detail=product_one($id);
+                $sp=product_one($id);
+
                 if(isset($feedback_submit)) {
                     feedback_add($feedback,$_SESSION['user']['MaKhachHang'],$id);
                 }
