@@ -6716,6 +6716,7 @@ a.popup-img {
   text-transform: capitalize;
   font-weight: 700;
   margin-bottom: 30px;
+  margin-top: 35px;
 }
 
 /*-- Checkout Form --*/
@@ -7032,6 +7033,7 @@ a.popup-img {
 /*-- Place Order --*/
 .place-order {
   margin-top: 40px;
+  margin-bottom: 40px;
   float: left;
 }
 
