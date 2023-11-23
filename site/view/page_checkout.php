@@ -105,7 +105,8 @@ if (!empty($userID)) {
             <div class="row">
                 <div class="col-lg-7">
                     <!-- Mẫu thanh toán bắt đầu -->
-                    <form action="#" class="checkout-form">
+                    <form class="checkout-form"method="POST" target="_blank" enctype="application/x-www-form-urlencoded"
+                          action="../site/view/xulythanhtoanmomo.php">
                         <div class="row row-40">
 
                             <div class="col-12 mb-60">
@@ -205,7 +206,6 @@ if (!empty($userID)) {
                             <div class="col-12 mb-30">
                                 <button class="place-order btn btn-lg btn-round" style="background-color: #cea679">Đặt Hàng</button>
                             </div>
-
                         </div>
                     </form>
                     <!-- Mẫu thanh toán kết thúc -->
