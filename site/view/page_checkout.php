@@ -75,10 +75,9 @@
                                 <div class="form-group">
                                     <label for="payment-method">Chọn Phương Thức Thanh Toán:</label>
                                     <select class="form-control" id="payment-method" name="payment-method" onchange="changePaymentImage()">
-                                        
+                                        <option value="cash">Thanh toán tiền mặt khi nhận hàng</option>
                                         <option value="wallet">Thanh toán qua ví điện tử</option>
                                         <option value="bank">Thanh toán qua ngân hàng</option>
-                                        <option value="cash">Thanh toán tiền mặt khi nhận hàng</option>
                                     </select>
                                 </div>
                             </div>
@@ -114,11 +113,11 @@
 
             // Thay đổi hình ảnh dựa trên phương thức thanh toán được chọn
             if (paymentMethod === "wallet") {
-                paymentImage.src = "../content/img/thanhtoan1.jpg";
-            } else if (paymentMethod === "bank") {
                 paymentImage.src = "../content/img/thanhtoan2.jpg";
+            } else if (paymentMethod === "bank") {
+                paymentImage.src = "../content/img/thanhtoan3.jpg";
             } else {
-                paymentImage.src = "";
+                paymentImage.src = "../content/img/thanhtoan1.jpg";
             }
         }
     </script>
