@@ -45,6 +45,49 @@
 
                             <div class="col-12 mb-60">
                                 <h4 class="checkout-title">Tổng Giỏ Hàng</h4>
+                                <div class="diachi">
+                                    <h4>Thông tin:</h4>
+                                    <?php
+// Kết nối CSDL
+try {
+    $db = new PDO('mysql:host=localhost;dbname=MyPhamShop;charset=utf8', 'root', '');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo 'Kết nối CSDL thất bại: ' . $e->getMessage();
+}
+
+// Chỉ hiển thị thông tin khách hàng
+$userID = isset($_SESSION['user']['MaKhachHang']) ? intval($_SESSION['user']['MaKhachHang']) : 0;
+
+if (!empty($userID)) {
+    $query = "SELECT HoTen, SDT, DiaChi FROM khachhang WHERE MaKhachHang = :id";
+
+    try {
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id', $userID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Lấy thông tin khách hàng
+        $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Check if any data is fetched
+        if ($customer !== false) {
+            echo '<p>Tên: ' . $customer['HoTen'] . '</p>';
+            echo '<p>SĐT: ' . $customer['SDT'] . '</p>';
+            echo '<p>Địa chỉ: ' . $customer['DiaChi'] . '</p>';
+        } else {
+            echo '<p>Không tìm thấy thông tin địa chỉ.</p>';
+        }
+    } catch (PDOException $e) {
+        echo 'Lỗi truy vấn CSDL: ' . $e->getMessage();
+    }
+} else {
+    echo 'ID không hợp lệ.';
+}
+?>
+
+
+                                </div>
                                 <div class="checkout-cart-total">
                                     <h4>Sản Phẩm <span>Tổng</span></h4>
                                     <ul>
@@ -90,49 +133,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="diachi">
-                                    <h4>Thông tin:</h4>
-                                    <?php
-// Kết nối CSDL
-try {
-    $db = new PDO('mysql:host=localhost;dbname=MyPhamShop;charset=utf8', 'root', '');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo 'Kết nối CSDL thất bại: ' . $e->getMessage();
-}
-
-// Chỉ hiển thị thông tin khách hàng
-$userID = isset($_SESSION['user']['MaKhachHang']) ? intval($_SESSION['user']['MaKhachHang']) : 0;
-
-if (!empty($userID)) {
-    $query = "SELECT HoTen, SDT, DiaChi FROM khachhang WHERE MaKhachHang = :id";
-
-    try {
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(':id', $userID, PDO::PARAM_INT);
-        $stmt->execute();
-
-        // Lấy thông tin khách hàng
-        $customer = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Check if any data is fetched
-        if ($customer !== false) {
-            echo '<p>Tên: ' . $customer['HoTen'] . '</p>';
-            echo '<p>SĐT: ' . $customer['SDT'] . '</p>';
-            echo '<p>Địa chỉ: ' . $customer['DiaChi'] . '</p>';
-        } else {
-            echo '<p>Không tìm thấy thông tin địa chỉ.</p>';
-        }
-    } catch (PDOException $e) {
-        echo 'Lỗi truy vấn CSDL: ' . $e->getMessage();
-    }
-} else {
-    echo 'ID không hợp lệ.';
-}
-?>
-
-
-                                </div>
+                            
                  
 
                             <!-- Phương thức thanh toán -->
