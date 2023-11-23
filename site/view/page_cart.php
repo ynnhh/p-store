@@ -64,7 +64,7 @@
                                 class="cart-payment-right  d-flex align-items-center justify-content-between hstack gap-3">
                                 <h6 class="mb-0 text-truncate">Tổng thanh toán: </h6>
                                 <strong><?=number_format($sum,0, ",",",")." VND"?></strong>
-                                <a href="?mod=cart&act=checkout" class="btn btn-success btn-block">Thanh toán
+                                <a href="?mod=cart&act=checkout" class="btn btn-success btn-block">Mua hàng
                                 </a>
                             </div>
                         </div>
