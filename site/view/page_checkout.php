@@ -1,174 +1,127 @@
-        <!--Checkout section start-->
-        <div
-            class="checkout-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
+<!DOCTYPE html>
+<html lang="vi">
 
-                        <!-- Checkout Form Start-->
-                        <form action="#" class="checkout-form">
-                            <div class="row row-40">
+<head>
+    <!-- Bao gồm nội dung đầu trang ở đây, như các thẻ meta, tiêu đề, bảng kiểu, v.v. -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Thêm CSS tùy chỉnh nếu cần thiết */
+        .checkout-section {
+            padding: 40px 0;
+        }
 
-                                <div class="col-lg-7">
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
-                                    <!-- Billing Address -->
-                                    <div id="billing-form" class="mb-10">
-                                        <h4 class="checkout-title">Billing Address</h4>
-                                        <div class="row">
-                                            <div class="col-md-12 col-12 mb-5">
-                                                <label>Họ và tên*</label>
-                                                <input type="text" placeholder="Họ và tên">
-                                            </div>
-                                            <div class="col-md-12 col-12 mb-5">
-                                                <label>Email Address*</label>
-                                                <input type="email" placeholder="Email">
-                                            </div>
-                                            <div class="col-md-12 col-12 mb-5">
-                                                <label>Phone no*</label>
-                                                <input type="text" placeholder="Số điện thoại">
-                                            </div>
-                                            <div class="col-12 mb-5">
-                                                <label>Address*</label>
-                                                <input type="text" placeholder="Nhập địa chỉ">
-                                            </div>
-                                            <div class="col-12 mb-5">
-                                                <div class="check-box">
-                                                    <input type="checkbox" id="shiping_address" data-shipping>
-                                                    <label for="shiping_address">Ship to Different Address</label>
-                                                </div>
-                                            </div>
+        #payment-image {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
 
-                                        </div>
+<body>
 
-                                    </div>
+    <!-- Phần thanh toán bắt đầu -->
+    <div class="checkout-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <!-- Mẫu thanh toán bắt đầu -->
+                    <form action="#" class="checkout-form">
+                        <div class="row row-40">
 
-                                    <!-- Shipping Address -->
-                                    <div id="shipping-form">
-                                        <h4 class="checkout-title">Shipping Address</h4>
+                            <div class="col-12 mb-60">
+                                <!-- Các phần khác của form thanh toán ở đây -->
+                                <h4 class="checkout-title">Tổng Giỏ Hàng</h4>
+                                <div class="checkout-cart-total">
+                                    <h4>Sản Phẩm <span>Tổng</span></h4>
+                                    <ul>
+                                        <!-- Lặp qua từng sản phẩm trong giỏ hàng -->
+                                        <?php
+                                        $sum = 0; // Khởi tạo $sum ở đây
+                                        foreach ($_SESSION['cart'] as $item):
+                                            $productTotal = $item['GiaKhuyenMai'] * $item['sl'];
+                                            $sum += $productTotal; // Cộng dồn tổng tiền sản phẩm vào $sum
+                                        ?>
+                                            <li><?= $item['TenSanPham'] ?> X <?= $item['sl'] ?> <span><?= number_format($productTotal, 0, ",", ".") ?> VND</span></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                    <p>Tổng Cộng <span><?= number_format($sum, 0, ",", ".") ?> VND</span></p>
 
-                                        <div class="row">
+                                    <!-- Phí giao hàng -->
+                                    <p>Phí Giao Hàng: <span>30,000 VND</span></p>
 
-                                            <div class="col-md-12 col-12 mb-5">
-                                                <label>Họ và tên*</label>
-                                                <input type="text" placeholder="Họ và tên">
-                                            </div>
-                                            <div class="col-md-12 col-12 mb-5">
-                                                <label>Email Address*</label>
-                                                <input type="email" placeholder="Email">
-                                            </div>
-                                            <div class="col-md-12 col-12 mb-5">
-                                                <label>Phone no*</label>
-                                                <input type="text" placeholder="Số điện thoại">
-                                            </div>
-                                            <div class="col-12 mb-5">
-                                                <label>Address*</label>
-                                                <input type="text" placeholder="Nhập địa chỉ">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h4>Tổng Thanh Toán <span><?= number_format($sum + 30000, 0, ",", ".") ?> VND</span></h4>
                                 </div>
-
-                                <div class="col-lg-5">
-                                    <div class="row">
-
-                                        <!-- Cart Total -->
-                                        <div class="col-12 mb-60">
-
-                                            <h4 class="checkout-title">Cart Total</h4>
-
-                                            <div class="checkout-cart-total">
-
-                                                <h4>Product <span>Total</span></h4>
-
-                                                <ul>
-                                                    <li>Teritory Quentily X 01 <span>$35.00</span></li>
-                                                    <li>Adurite Silocone X 02 <span>$59.00</span></li>
-                                                    <li>Baizidale Momone X 01 <span>$78.00</span></li>
-                                                    <li>Makorone Cicile X 01 <span>$65.00</span></li>
-                                                </ul>
-
-                                                <p>Sub Total <span>$296.00</span></p>
-                                                <p>Shipping Fee <span>$00.00</span></p>
-
-                                                <h4>Grand Total <span>$296.00</span></h4>
-
-                                            </div>
-
-                                        </div>
-
-                                        <!-- Payment Method -->
-                                        <div class="col-12 mb-30">
-
-                                            <h4 class="checkout-title">Payment Method</h4>
-
-                                            <div class="checkout-payment-method">
-
-                                                <div class="single-method">
-                                                    <input type="radio" id="payment_check" name="payment-method"
-                                                        value="check">
-                                                    <label for="payment_check">Check Payment</label>
-                                                    <p data-method="check">Please send a Check to Store name with Store
-                                                        Street, Store Town, Store State, Store Postcode, Store Country.
-                                                    </p>
-                                                </div>
-
-                                                <div class="single-method">
-                                                    <input type="radio" id="payment_bank" name="payment-method"
-                                                        value="bank">
-                                                    <label for="payment_bank">Direct Bank Transfer</label>
-                                                    <p data-method="bank">Please send a Check to Store name with Store
-                                                        Street, Store Town, Store State, Store Postcode, Store Country.
-                                                    </p>
-                                                </div>
-
-                                                <div class="single-method">
-                                                    <input type="radio" id="payment_cash" name="payment-method"
-                                                        value="cash">
-                                                    <label for="payment_cash">Cash on Delivery</label>
-                                                    <p data-method="cash">Please send a Check to Store name with Store
-                                                        Street, Store Town, Store State, Store Postcode, Store Country.
-                                                    </p>
-                                                </div>
-
-                                                <div class="single-method">
-                                                    <input type="radio" id="payment_paypal" name="payment-method"
-                                                        value="paypal">
-                                                    <label for="payment_paypal">Paypal</label>
-                                                    <p data-method="paypal">Please send a Check to Store name with Store
-                                                        Street, Store Town, Store State, Store Postcode, Store Country.
-                                                    </p>
-                                                </div>
-
-                                                <div class="single-method">
-                                                    <input type="radio" id="payment_payoneer" name="payment-method"
-                                                        value="payoneer">
-                                                    <label for="payment_payoneer">Payoneer</label>
-                                                    <p data-method="payoneer">Please send a Check to Store name with
-                                                        Store Street, Store Town, Store State, Store Postcode, Store
-                                                        Country.</p>
-                                                </div>
-
-                                                <div class="single-method">
-                                                    <input type="checkbox" id="accept_terms">
-                                                    <label for="accept_terms">I’ve read and accept the terms &
-                                                        conditions</label>
-                                                </div>
-
-                                            </div>
-
-                                            <button class="place-order btn btn-lg btn-round">Place order</button>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
                             </div>
-                        </form>
 
-                    </div>
+                            <!-- Dropdown Phương thức giao hàng -->
+                            <div class="col-12 mb-30">
+                                <div class="form-group">
+                                    <label for="shipping-method">Chọn Phương Thức Giao Hàng:</label>
+                                    <select class="form-control" id="shipping-method" name="shipping-method">
+                                        <option value="ghtk">GHTK (Giao Hàng Tiết Kiệm)</option>
+                                        <option value="ghn">GHN (Giao Hàng Nhanh)</option>
+                                        <option value="hoa-toc">Hỏa Tốc</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Dropdown Phương thức thanh toán -->
+                            <div class="col-12 mb-30">
+                                <div class="form-group">
+                                    <label for="payment-method">Chọn Phương Thức Thanh Toán:</label>
+                                    <select class="form-control" id="payment-method" name="payment-method" onchange="changePaymentImage()">
+                                        
+                                        <option value="wallet">Thanh toán qua ví điện tử</option>
+                                        <option value="bank">Thanh toán qua ngân hàng</option>
+                                        <option value="cash">Thanh toán tiền mặt khi nhận hàng</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Phương thức thanh toán -->
+                            <div class="col-12 mb-30">
+                                <button class="place-order btn btn-lg btn-round" style="background-color: #cea679">Đặt Hàng</button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- Mẫu thanh toán kết thúc -->
+                </div>
+
+                <div class="col-lg-5">
+                    <!-- Ảnh bên phải -->
+                    <img id="payment-image" src="../content/img/thanhtoan1.jpg">
                 </div>
             </div>
         </div>
-        <!--Checkout section end-->
+    </div>
+    <!-- Phần thanh toán kết thúc -->
+
+    <!-- Bao gồm các tập lệnh và các phần tử cần thiết khác ở đây -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function changePaymentImage() {
+            var paymentMethod = document.getElementById("payment-method").value;
+            var paymentImage = document.getElementById("payment-image");
+
+            // Thay đổi hình ảnh dựa trên phương thức thanh toán được chọn
+            if (paymentMethod === "wallet") {
+                paymentImage.src = "../content/img/thanhtoan1.jpg";
+            } else if (paymentMethod === "bank") {
+                paymentImage.src = "../content/img/thanhtoan2.jpg";
+            } else {
+                paymentImage.src = "";
+            }
+        }
+    </script>
+</body>
+
 </html>
