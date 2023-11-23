@@ -19,6 +19,16 @@
             width: 300px;
             height: 300px;
         }
+        .diachi {
+        background-color: #f5f5f5; /* Màu nền của div */
+        padding: 15px; /* Khoảng cách giữa nội dung và viền của div */
+        border: 1px solid #ddd; /* Viền của div */
+        margin-bottom: 20px; /* Khoảng cách giữa div và phần khác */
+    }
+
+    .diachi p {
+        margin: 0; /* Loại bỏ khoảng trắng mặc định của các đoạn văn bản */
+    }
     </style>
 </head>
 
@@ -34,7 +44,6 @@
                         <div class="row row-40">
 
                             <div class="col-12 mb-60">
-                                <!-- Các phần khác của form thanh toán ở đây -->
                                 <h4 class="checkout-title">Tổng Giỏ Hàng</h4>
                                 <div class="checkout-cart-total">
                                     <h4>Sản Phẩm <span>Tổng</span></h4>
@@ -81,6 +90,50 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="diachi">
+                                    <h4>Thông tin:</h4>
+                                    <?php
+// Kết nối CSDL
+try {
+    $db = new PDO('mysql:host=localhost;dbname=MyPhamShop;charset=utf8', 'root', '');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo 'Kết nối CSDL thất bại: ' . $e->getMessage();
+}
+
+// Chỉ hiển thị thông tin khách hàng
+$userID = isset($_SESSION['user']['MaKhachHang']) ? intval($_SESSION['user']['MaKhachHang']) : 0;
+
+if (!empty($userID)) {
+    $query = "SELECT HoTen, SDT, DiaChi FROM khachhang WHERE MaKhachHang = :id";
+
+    try {
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id', $userID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Lấy thông tin khách hàng
+        $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Check if any data is fetched
+        if ($customer !== false) {
+            echo '<p>Tên: ' . $customer['HoTen'] . '</p>';
+            echo '<p>SĐT: ' . $customer['SDT'] . '</p>';
+            echo '<p>Địa chỉ: ' . $customer['DiaChi'] . '</p>';
+        } else {
+            echo '<p>Không tìm thấy thông tin địa chỉ.</p>';
+        }
+    } catch (PDOException $e) {
+        echo 'Lỗi truy vấn CSDL: ' . $e->getMessage();
+    }
+} else {
+    echo 'ID không hợp lệ.';
+}
+?>
+
+
+                                </div>
+                 
 
                             <!-- Phương thức thanh toán -->
                             <div class="col-12 mb-30">
@@ -92,7 +145,7 @@
                     <!-- Mẫu thanh toán kết thúc -->
                 </div>
 
-                <div class="col-lg-5">
+                <div class="col-lg-5" style="padding-left: 140px; padding-top: 150px">
                     <!-- Ảnh bên phải -->
                     <img id="payment-image" src="../content/img/thanhtoan1.jpg">
                 </div>
