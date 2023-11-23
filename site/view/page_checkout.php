@@ -33,6 +33,71 @@
 </head>
 
 <body>
+<?php
+// Kết nối CSDL
+try {
+    $db = new PDO('mysql:host=localhost;dbname=MyPhamShop;charset=utf8', 'root', '');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo 'Kết nối CSDL thất bại: ' . $e->getMessage();
+}
+
+// Chỉ hiển thị thông tin khách hàng
+$userID = isset($_SESSION['user']['MaKhachHang']) ? intval($_SESSION['user']['MaKhachHang']) : 0;
+
+if (!empty($userID)) {
+    $query = "SELECT HoTen, SDT, DiaChi FROM khachhang WHERE MaKhachHang = :id";
+
+    try {
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id', $userID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Lấy thông tin khách hàng
+        $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Check if any data is fetched
+        if ($customer !== false) {
+            // Kiểm tra nếu một trong ba giá trị là null
+            if ($customer['HoTen'] === null || $customer['SDT'] === null || $customer['DiaChi'] === null) {
+                echo '<div id="infoForm" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border: 1px solid #ddd;">';
+                echo '<form id="updateForm" action="update_customer_info.php" method="post">';
+                echo '<label for="hoTen">Họ Tên:</label>';
+                echo '<input type="text" id="hoTen" name="hoTen"><br>';
+                echo '<label for="sdt">SĐT:</label>';
+                echo '<input type="text" id="sdt" name="sdt"><br>';
+                echo '<label for="diaChi">Địa Chỉ:</label>';
+                echo '<input type="text" id="diaChi" name="diaChi"><br>';
+                echo '<input type="button" value="OK" onclick="updateInfo()">';
+                echo '</form>';
+                echo '</div>';
+            } 
+        } 
+    } catch (PDOException $e) {
+        echo 'Lỗi truy vấn CSDL: ' . $e->getMessage();
+    }
+} else {
+    echo 'ID không hợp lệ.';
+}
+?>
+<script>
+    function updateInfo() {
+        // Lấy giá trị từ form
+        var hoTen = document.getElementById('hoTen').value;
+        var sdt = document.getElementById('sdt').value;
+        var diaChi = document.getElementById('diaChi').value;
+
+        // Gửi dữ liệu lên server (có thể sử dụng Ajax để gửi dữ liệu mà không cần tải lại trang)
+        // Nếu sử dụng Ajax, bạn có thể gọi một trang PHP khác để xử lý việc cập nhật dữ liệu
+
+        // Ẩn form khi đã xử lý xong
+        document.getElementById('infoForm').style.display = 'none';
+
+        // Load lại trang (bạn có thể sử dụng Ajax để load lại chỉ cần không muốn tải lại toàn bộ trang)
+        location.reload();
+    }
+</script>
+
 
     <!-- Phần thanh toán bắt đầu -->
     <div class="checkout-section">
