@@ -55,7 +55,7 @@ body,
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #efefef;
   font-size: 14px;
   line-height: 28px;
   font-style: normal;
@@ -580,9 +580,9 @@ textarea:-ms-input-placeholder {
     - Button
 ------------------------------------------*/
 .btn {
-  background-color: #cea679;
-  color: #ffffff;
-  font-size: 16px;
+  /* background-color: #cea679;
+  color: #ffffff; */
+  /* font-size: 16px;
   line-height: 12px;
   height: 45px;
   font-weight: 600;
@@ -592,7 +592,7 @@ textarea:-ms-input-placeholder {
   position: relative;
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s; */
 }
 
 .btn:focus {
@@ -7032,6 +7032,8 @@ a.popup-img {
 
 /*-- Place Order --*/
 .place-order {
+  background-color: #cea679;
+  color: #ffffff;
   margin-top: 40px;
   margin-bottom: 40px;
   float: left;

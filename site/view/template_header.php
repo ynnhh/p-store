@@ -17,7 +17,7 @@
     <!-- Header -->
     <header class="sticky-top bg-white border">
         <!-- row-top -->
-        <div class="bg-danger">
+        <!-- <div class="bg-danger">
             <div class="container text-white">
                 <div class="row">
                     <div class="col-md-6 pt-3">
@@ -28,28 +28,28 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- menu -->
-        <div class="container p-2">
-            <nav class="navbar navbar-expand-lg bg-white ">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg  ">
                 <div class="container px-0 mx-0">
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="index.php"><span class="text-danger">LO</span><span>GO</span></a>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <a class="logo navbar-brand text-center" style="width: 250px" href="index.php"><img src="../content/img/logo1.png" alt="" width="50%"></a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase">
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="?mod=page&act=home">TRANG CHỦ</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link text-black" href="?mod=page&act=category&id=1">NỮ</a>
+                        <a class="nav-link text-black" href="?mod=page&act=category&id=1">SẢN PHẨM</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link text-black" href="?mod=page&act=category&id=2">NAM</a>
+                        <a class="nav-link text-black" href="?mod=page&act=category&id=2">chăm sóc cá nhân</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link text-black" href="?mod=page&act=category&id=3">TRẺ EM</a>
+                        <a class="nav-link text-black" href="?mod=page&act=category&id=3">blog</a>
                       </li>
                     </ul>
                     <form method='post' action='?mod=page&act=search' class="d-flex" role="search">
@@ -59,7 +59,7 @@
                     <div class="d-flex align-items-center ms-5">
                         <div id="cart" class="position-relative d-flex justify-content-center align-items-center rounded-circle bg-black bg-opacity-10 px-2 py-1 ">
                             <a href="?mod=cart&act=list">
-                                <i class="bi bi-cart fs-5  fw-bolder  text-dark"></i>
+                                <i class="fa-solid fa-bag-shopping fw-bolder  text-dark fs-4"></i>
                             </a>
                             <div class="">
                                 <span id="amount-cart" class="text-white  position-absolute top-0 start-75 translate-middle bg-danger px-2 rounded-circle">
@@ -98,13 +98,13 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="../content/img/banner0.jpeg" class="d-block w-100" alt="...">
+                    <img src="../content/img/banner0.jpg" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="../content/img/banner1.jpeg" class="d-block w-100" alt="...">
+                    <img src="../content/img/banner1.jpg" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="../content/img/banner0.jpeg" class="d-block w-100" alt="...">
+                    <img src="../content/img/banner0.jpg" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -118,7 +118,7 @@
               </div>
         </div>
         <div class="col-md-3 m-0">
-            <img class="img-fluid" src="../content/img/banner2.webp" alt="">
-            <img class="img-fluid" src="../content/img/banner3.webp" alt="">
+            <img class="img-fluid" src="../content/img/banner2.jpg" alt="">
+            <img class="img-fluid" src="../content/img/banner3.jpg" alt="">
         </div>
     </div>
