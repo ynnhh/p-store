@@ -1,7 +1,14 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
 
+session_start();
 
+foreach ($_SESSION['cart'] as $item) {
+
+    $productTotal = $item['GiaKhuyenMai'] * $item['sl'];
+    $sum += $productTotal; // Cộng dồn tổng tiền sản phẩm vào $sum
+  
+}
 function execPostRequest($url, $data)
 {
     $ch = curl_init($url);
@@ -30,7 +37,7 @@ $accessKey = 'klm05TvNBzhg7h7j';
 $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 
 $orderInfo = "Thanh toán qua mã QR MoMo";
-$amount = "10000";
+$amount = $sum +30000;
 $orderId = time() ."";
 $redirectUrl = "http://localhost/DuanWebsite/site/index.php?mod=cart&act=checkout";
 $ipnUrl = "http://localhost/DuanWebsite/site/index.php?mod=cart&act=checkout";
