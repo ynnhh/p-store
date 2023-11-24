@@ -90,7 +90,7 @@
         <!-- All categories -->
         <div class="text-center mt-5">
             <div class=" d-flex">
-                <h3 class="my-3">Thời Trang Nữ</h3>
+                <h3 class="my-3">Chăm sóc da</h3>
                 <a href="?mod=page&act=category&id=1" class="btn btn-outline-dark my-3 ms-auto">Xem thêm</a>
             </div>
             <div class="row">
@@ -120,7 +120,7 @@
         </div>
         <div class="text-center mt-5">
             <div class=" d-flex">
-                <h3 class="my-3">Thời Trang Nam</h3>
+                <h3 class="my-3">Sản phẩm bán chạy</h3>
                 <a href="?mod=page&act=category&id=2" class="btn btn-outline-dark my-3 ms-auto">Xem thêm</a>
             </div>
             <div class="row">
@@ -150,7 +150,7 @@
         </div>
         <div class="text-center mt-5">
             <div class=" d-flex">
-                <h3 class="my-3">Thời Trang Trẻ Em</h3>
+                <h3 class="my-3">Chăm sóc cá nhân</h3>
                 <a href="?mod=page&act=category&id=3" class="btn btn-outline-dark my-3 ms-auto">Xem thêm</a>
             </div>
             <div class="row">
