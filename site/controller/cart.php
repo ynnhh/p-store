@@ -24,7 +24,7 @@
                 /* echo '<prev>';
                 print_r($_SESSION['cart']);
                 echo '</prev>'; */
-                //unset($_SESSION['cart']);  xóa session cũ
+                //unset($_SESSION['cart']);  //xóa session cũ
                 include_once 'view/template_header.php';
                 include_once 'view/page_cart.php';
                 include_once 'view/template_footer.php';
@@ -46,12 +46,6 @@
                 header ('location: ?mod=cart&act=list');
             break;
 
-            case 'checkout':
-                include_once 'view/template_header.php';
-                include_once 'view/page_checkout.php';
-                include_once 'view/template_footer.php';
-            break;
-
             case 'decrease':
                 if($_SESSION['cart'][$id]['sl']>1) {
                     $_SESSION['cart'][$id]['sl']-=1;
@@ -60,6 +54,12 @@
                 }
                 
                 header ('location: ?mod=cart&act=list');
+            break;
+            
+            case 'checkout':
+                include_once 'view/template_header.php';
+                include_once 'view/page_checkout.php';
+                include_once 'view/template_footer.php';
             break;
         }
     }

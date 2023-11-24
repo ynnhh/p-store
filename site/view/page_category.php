@@ -21,12 +21,21 @@
             <div class="row">
                 <?php foreach($sp_dm as $sp):?>
                 <div class="col-md-4 my-3 ">
-                    <div class="shadow pb-3 rounded">
-                        <a href="?mod=product&act=detail&id=<?=$sp['MaSanPham']?>"><img class="img-fluid mb-2 rounded-top" src="<?='../content/img/'.$sp['HinhAnh']?>" alt=""></a>
-                    <p><b><?=$sp['TenSanPham']?></b></p>
-                    <span class="text-danger">Giá: <?=$sp['GiaKhuyenMai']?> đ </span> <span> <del> <?=$sp['Gia']?> đ</del></span>
-                    <p></p>
-                    <a href="?mod=cart&act=add&id=<?=$sp['MaSanPham']?>" class="btn btn-danger">Thuê ngay</a>
+                <div class="shadow pb-3 container-img">
+                        <div class="product-img position-relative overflow-hidden">
+                            <a href="?mod=product&act=detail&id=<?=$sp['MaSanPham']?>">
+                            <img class="img-fluid " src="../content/img/<?=$sp['HinhAnh']?>" alt="" ></a>
+                            <div class="product-action text-center icons">
+                                <a class="btn btn-outline-dark btn-square" href="?mod=cart&act=add&id=<?=$sp['MaSanPham']?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                            </div>
+                        </div>
+                        
+                        <p class="text-capitalize"><b><?=$sp['TenSanPham']?></b></p>
+                        <div class="d-flex justify-content-around">
+                            <span class="text-danger fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
+                            <span> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+                        </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
