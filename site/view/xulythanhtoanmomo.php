@@ -1,7 +1,6 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
 
-
 function execPostRequest($url, $data)
 {
     $ch = curl_init($url);
@@ -30,7 +29,7 @@ $accessKey = 'klm05TvNBzhg7h7j';
 $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 
 $orderInfo = "Thanh toán qua mã QR MoMo";
-$amount = "10000";
+$amount = "3000000";
 $orderId = time() ."";
 $redirectUrl = "http://localhost/DuanWebsite/site/index.php?mod=cart&act=checkout";
 $ipnUrl = "http://localhost/DuanWebsite/site/index.php?mod=cart&act=checkout";

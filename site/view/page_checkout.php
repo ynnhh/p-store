@@ -163,9 +163,13 @@ if (!empty($userID)) {
                                         foreach ($_SESSION['cart'] as $item):
                                             $productTotal = $item['GiaKhuyenMai'] * $item['sl'];
                                             $sum += $productTotal; // Cộng dồn tổng tiền sản phẩm vào $sum
+                                            
+                                      
                                         ?>
                                             <li><?= $item['TenSanPham'] ?> X <?= $item['sl'] ?> <span><?= number_format($productTotal, 0, ",", ".") ?> VND</span></li>
-                                        <?php endforeach; ?>
+                                        
+                                            <?php endforeach; ?>
+
                                     </ul>
                                     <p>Tổng Cộng <span><?= number_format($sum, 0, ",", ".") ?> VND</span></p>
 
