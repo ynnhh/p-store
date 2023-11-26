@@ -8984,200 +8984,267 @@ only screen and (max-width: 767px) {
 /*  23. Footer CSS
 /*----------------------------------------*/
 /*-- Footer Widget --*/
-.footer-widget .title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 600;
-  color: #d8d8d8;
-  white-space: nowrap;
-  text-transform: uppercase;
-  margin-bottom: 30px;
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+* {
+    padding: 0;
+    margin: 0;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .footer-widget .title {
-    margin-bottom: 15px;
-  }
+footer {
+    position: fixed;
+    bottom: 0;
 }
 
-@media only screen and (max-width: 767px) {
-  .footer-widget .title {
-    margin-bottom: 15px;
-  }
+@media (max-height:800px) {
+    footer {
+        position: static;
+    }
+    header {
+        padding-top: 40px;
+    }
 }
 
-.footer-widget .title .text {
-  margin-right: 10px;
+.footer-distributed {
+    background-color: #2d2a30;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 50px 50px 60px 50px;
+    margin-top: 80px;
 }
 
-.footer-widget .title .shape {
-  height: 5px;
-  display: block;
-  background-color: rgba(255, 255, 255, 0.3);
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
+.footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
 }
 
-.footer-widget p {
-  margin-top: 13px;
-  color: #d8d8d8;
-  line-height: 24px;
+/* Footer left */
+
+.footer-distributed .footer-left {
+    width: 30%;
 }
 
-@media only screen and (max-width: 767px) {
-  .footer-widget p {
-    width: auto;
-  }
+.footer-distributed h3 {
+    color: #ffffff;
+    font: normal 36px 'Cookie', cursive;
+    margin: 0;
 }
 
-.footer-widget ul.address li {
-  color: #d8d8d8;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 14px;
-  line-height: 22px;
-  margin-bottom: 12px;
+
+.footer-distributed h3 span {
+    color: #e0ac1c;
 }
 
-.footer-widget ul.address li:last-child {
-  margin-bottom: 0;
+/* Footer links */
+
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 20px 0 12px;
 }
 
-.footer-widget ul.address li i {
-  margin-right: 15px;
-  line-height: 28px;
-  font-size: 18px;
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
 }
 
-.footer-widget ul.address li span {
-  overflow: hidden;
+.footer-distributed .footer-company-name {
+    color: #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
 }
 
-.footer-widget ul.address li a {
-  display: block;
+/* Footer Center */
+
+.footer-distributed .footer-center {
+    width: 35%;
 }
 
-.footer-widget ul.address li a:hover {
-  color: #cea679;
+.footer-distributed .footer-center i {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
 }
 
-.footer-widget>.ft-menu {
-  display: inline-block;
-  margin-left: 10px;
+.footer-distributed .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
 }
 
-.footer-widget>.ft-menu>li {
-  line-height: 24px;
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin: 0;
 }
 
-.footer-widget>.ft-menu>li>a {
-  list-style-type: square;
-  text-transform: capitalize;
-  text-decoration: none;
-  color: #d8d8d8;
-  display: inherit;
-  -webkit-transition: all 0.4s ease-out;
-  -o-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
 }
 
-.footer-widget>.ft-menu>li>a:hover {
-  padding-left: 15px;
-  color: #ffffff;
+.footer-distributed .footer-center p a {
+    color: #e0ac1c;
+    text-decoration: none;
+    ;
 }
 
-/*-- Footer Social --*/
-.footer-social {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+/* Footer Right */
+
+.footer-distributed .footer-right {
+    width: 30%;
 }
 
-.footer-social a {
-  text-align: center;
-  border-radius: 50px;
-  color: #d8d8d8;
-  margin: 10px 18px 0 0;
-  display: block;
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
 }
 
-.footer-social a:last-child {
-  margin-right: 0;
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.footer-social a:hover {
-  color: #cea679;
+.footer-distributed .footer-icons {
+    margin-top: 25px;
 }
 
-.footer-social a i {
-  display: block;
-  font-size: 20px;
-  line-height: 20px;
+.footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #33383b;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
 }
 
-/*-- Footer News Letter --*/
-.footer-newsletter {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.footer-distributed .footer-icons a:hover {
+    background-color: #3F71EA;
 }
 
-.footer-newsletter input {
-  width: calc(100% - 40px);
-  max-width: 250px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background-color: transparent;
-  color: #ffffff;
-  line-height: 24px;
-  padding: 7px 15px;
-  font-size: 13px;
+.footer-links a:hover {
+    color: #3F71EA;
+}
+/*Icon thanh toán và giao hàng, hoàn trả */
+.new-footer-center div i.fa-credit-card {
+    color: #4CAF50; 
+    font-size: 24px; 
 }
 
-.footer-newsletter button {
-  width: 40px;
-  height: 40px;
-  border: none;
-  background-color: #cea679;
-  color: #ffffff;
+.new-footer-center div i.fa-credit-card:hover {
+    transform: scale(1.2); 
 }
 
-/*-- Footer Bottom --*/
-/*-- Copyright --*/
-@media only screen and (max-width: 575px) {
-  .copyright {
-    text-align: center !important;
-  }
+.new-footer-center div img {
+    width: 20px;
+    height: 20px;
 }
 
-.copyright p {
-  line-height: 30px;
-  color: #d8d8d8;
-  font-size: 14px;
+.new-footer-center div {
+    text-align: center;
 }
 
-@media only screen and (max-width: 575px) {
-  .copyright p {
-    font-size: 12px;
-  }
+.new-footer-center div:hover {
+    transform: translateY(-5px); 
+    transition: transform 0.3s ease;
+}
+.new-footer-center div i.fa-truck {
+    color: #4CAF50; 
+    font-size: 24px; 
 }
 
-.copyright p a:hover {
-  color: #cea679;
+.new-footer-center div i.fa-truck:hover {
+    transform: rotate(20deg); 
+    transition: transform 0.3s ease;
 }
 
-@media only screen and (max-width: 575px) {
-  .footer-logo {
-    text-align: center !important;
-  }
+.new-footer-center div img {
+    width: 20px;
+    height: 20px;
 }
+
+.new-footer-center div {
+    text-align: center;
+}
+
+.new-footer-center div:hover {
+    transform: translateY(-5px); 
+    transition: transform 0.3s ease;
+}
+.new-footer-center {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.icon-container:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+.new-footer-center div p {
+    color: white;
+}
+.new-footer-center .icon-container i.fa-refresh {
+    color: #4CAF50; 
+    font-size: 24px;
+}
+
+.new-footer-center .icon-container i.fa-refresh:hover {
+    transform: scale(1.2);
+}
+
+.new-footer-center .icon-container:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.new-footer-center .icon-container p {
+    margin: 0;
+    color: white;
+}
+
+.new-footer-center .icon-container:hover p {
+    color: #4CAF50;
+}
+
+.new-footer-center .icon-container {
+    text-align: center;
+    width: 30%; 
+    padding: 5px;
+    margin-left: -50px; 
+}
+
+@media (max-width: 880px) {
+    .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .footer-distributed .footer-center i {
+        margin-left: 0;
+    }
+}       
