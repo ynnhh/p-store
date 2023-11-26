@@ -24,42 +24,47 @@ $orders = $stmtSelectOrders->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <body>
-<div class="p-5">
-    <h3 class="text-center">QUẢN LÝ ĐƠN HÀNG</h3>
-    <!-- <a href="?mod=product&act=add" class="btn btn-primary">Thêm sản phẩm</a> -->   
-    <br> 
-    <table class="table table-hover table-bordered">
-        <thead>
-            <tr class="table-success">
-            <th>Mã đơn hàng</th>
-            <th>Tên khách hàng</th>
-            <th>Địa chỉ</th>
-            <th>Email</th>
-            <th>Số điện thoại</th>
-            <th>Ngày Đặt Hàng</th>
-            <th>Trạng thái</th>
-            <th>Quản lý</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($orders as $order) : ?>
-            <tr>
-                <td><?php echo $order['MaDonHang']; ?></td>
-                <td><?php echo $order['HoTen']; ?></td>
-                <td><?php echo $order['DiaChi']; ?></td>
-                <td><?php echo $order['Email']; ?></td>
-                <td><?php echo $order['SDT']; ?></td>
-                <td><?php echo $order['NgayDatHang']; ?></td>
-                <td><?php echo $order['TrangThai']; ?></td>
-                <td>
-                    <!-- Chức năng quản lý -->
-                    <a class="btn-orders" href="order_detail.php?order=<?php echo $order['MaDonHang']; ?>">Xem chi tiết</a>
-                    <a class="btn-orders" href="update_status.php?order=<?php echo $order['MaDonHang']; ?>">Cập nhật trạng thái</a>
-                    <!-- Thêm các chức năng quản lý khác nếu cần -->
-                </td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
+    <div class="p-5">
+        <h3 class="text-center">QUẢN LÝ ĐƠN HÀNG</h3>
+        <br>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr class="table-success">
+                    <th>Mã đơn hàng</th>
+                    <th>Tên khách hàng</th>
+                    <th>Địa chỉ</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Ngày Đặt Hàng</th>
+                    <th>Trạng thái</th>
+                    <th>Quản lý</th>
+                </tr>
+            </thead>
+            <tbody>
+            <div style="margin: 10px;">
+            <form method="POST" action="view/page_orders_edit.php" style="margin: 10px">
+                                <input type="hidden" name="maDonHang" value="<?php echo $order['MaDonHang']; ?>">
+                                <button type="submit" class="btn-orders">Cập nhật trạng thái</button>
+                            </form></div>
+                <?php foreach ($orders as $order) : ?>
+                    <tr>
+                        <td><?php echo $order['MaDonHang']; ?></td>
+                        <td><?php echo $order['HoTen']; ?></td>
+                        <td><?php echo $order['DiaChi']; ?></td>
+                        <td><?php echo $order['Email']; ?></td>
+                        <td><?php echo $order['SDT']; ?></td>
+                        <td><?php echo $order['NgayDatHang']; ?></td>
+                        <td><?php echo $order['TrangThai']; ?></td>
+                        <td>
+                            <!-- Chức năng quản lý -->
+                            
+                            <a class="btn-orders" href="order_detail.php?order=<?php echo $order['MaDonHang']; ?>">Xem chi tiết</a>
+                            <!-- Thêm các chức năng quản lý khác nếu cần -->
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
 
-</div>
+    </div>
+</body>
