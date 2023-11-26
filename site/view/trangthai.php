@@ -59,10 +59,7 @@
 </head>
 <body>
     <div class="container">
-
         <?php
-        // Place your PHP code here
-
         session_start();
 
         // Kết nối đến cơ sở dữ liệu
@@ -78,23 +75,22 @@
         if (isset($_SESSION['user']['MaKhachHang'])) {
             $maKhachHang = $_SESSION['user']['MaKhachHang'];
         } else {
-            // Xử lý nếu không có thông tin khách hàng trong session
             echo "Không có thông tin khách hàng trong session.";
             die();
         }
 
         // Lấy danh sách đơn hàng theo thứ tự ngày đặt hàng
-    $sqlSelectOrders = "SELECT * FROM donhang WHERE MaKhachHang = :maKhachHang ORDER BY NgayDatHang DESC";
-    $stmtSelectOrders = $db->prepare($sqlSelectOrders);
-    $stmtSelectOrders->bindParam(':maKhachHang', $maKhachHang);
-    $stmtSelectOrders->execute();
-    $orders = $stmtSelectOrders->fetchAll(PDO::FETCH_ASSOC);
+        $sqlSelectOrders = "SELECT * FROM donhang WHERE MaKhachHang = :maKhachHang ORDER BY NgayDatHang DESC";
+        $stmtSelectOrders = $db->prepare($sqlSelectOrders);
+        $stmtSelectOrders->bindParam(':maKhachHang', $maKhachHang);
+        $stmtSelectOrders->execute();
+        $orders = $stmtSelectOrders->fetchAll(PDO::FETCH_ASSOC);
 
-    $sqlSelectCustomer = "SELECT HoTen, SDT, DiaChi FROM khachhang WHERE MaKhachHang = :maKhachHang";
-    $stmtSelectCustomer = $db->prepare($sqlSelectCustomer);
-    $stmtSelectCustomer->bindParam(':maKhachHang', $maKhachHang);
-    $stmtSelectCustomer->execute();
-    $customerInfo = $stmtSelectCustomer->fetch(PDO::FETCH_ASSOC);
+        $sqlSelectCustomer = "SELECT HoTen, SDT, DiaChi FROM khachhang WHERE MaKhachHang = :maKhachHang";
+        $stmtSelectCustomer = $db->prepare($sqlSelectCustomer);
+        $stmtSelectCustomer->bindParam(':maKhachHang', $maKhachHang);
+        $stmtSelectCustomer->execute();
+        $customerInfo = $stmtSelectCustomer->fetch(PDO::FETCH_ASSOC);
         ?>
 
         <h2>Danh sách đơn hàng:</h2>
@@ -102,12 +98,28 @@
             <?php foreach ($orders as $order) : ?>
                 <h2>Thông tin khách hàng:</h2>
                 <li>
-                    <pre>Họ và tên: <?php echo $customerInfo['HoTen']; ?> <br/>Số điện thoại: <?php echo $customerInfo['SDT']; ?> <br/>Địa chỉ: <?php echo $customerInfo['DiaChi']; ?></pre>
+                    <pre>Họ và tên: <?php echo $customerInfo['HoTen']; ?> Số điện thoại: <?php echo $customerInfo['SDT']; ?> Địa chỉ: <?php echo $customerInfo['DiaChi']; ?></pre>
                     Mã đơn hàng: <?php echo $order['MaDonHang']; ?><br>
                     Ngày đặt hàng: <?php echo $order['NgayDatHang']; ?><br>
                     Tổng tiền: <?php echo $order['TongTien']; ?><br>
-                    Trạng thái: <?php echo $order['TrangThai']; ?><br>
+                    <p style="color:green; font-weight: bold;">Trạng thái: <?php echo $order['TrangThai']; ?><br></p>
                     Ghi chú: <?php echo $order['GhiChu']; ?><br>
+
+                    <!-- Thêm phần hiển thị sản phẩm và số lượng -->
+                    <h3>Chi tiết đơn hàng:</h3>
+                    <?php
+                    $maDonHang = $order['MaDonHang'];
+                    $sqlSelectChiTiet = "SELECT sp.TenSanPham, ct.SoLuong FROM chitietdonhang ct
+                                         INNER JOIN sanpham sp ON ct.MaSanPham = sp.MaSanPham
+                                         WHERE ct.MaDonHang = :maDonHang";
+                    $stmtSelectChiTiet = $db->prepare($sqlSelectChiTiet);
+                    $stmtSelectChiTiet->bindParam(':maDonHang', $maDonHang);
+                    $stmtSelectChiTiet->execute();
+                    $chiTietDonHang = $stmtSelectChiTiet->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($chiTietDonHang as $chiTiet) {
+                        echo "Sản phẩm: {$chiTiet['TenSanPham']}, --- Số lượng: {$chiTiet['SoLuong']}<br>";
+                    }
+                    ?>
                 </li>
             <?php endforeach; ?>
         </ul>
