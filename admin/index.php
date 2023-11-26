@@ -19,7 +19,6 @@
                 break;
             case 'order':
                 include_once 'view/page_orders.php';
-
             default:
                 # code...
                 break;

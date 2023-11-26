@@ -54,7 +54,7 @@ $orders = $stmtSelectOrders->fetchAll(PDO::FETCH_ASSOC);
                 <td>
                     <!-- Chức năng quản lý -->
                     <a class="btn-orders" href="order_detail.php?order=<?php echo $order['MaDonHang']; ?>">Xem chi tiết</a>
-                    <a class="btn-orders" href="page_orders_edit.php?order=<?php echo $order['MaDonHang']; ?>">Cập nhật trạng thái</a>
+                    <a class="btn-orders" href="update_status.php?order=<?php echo $order['MaDonHang']; ?>">Cập nhật trạng thái</a>
                     <!-- Thêm các chức năng quản lý khác nếu cần -->
                 </td>
             </tr>
