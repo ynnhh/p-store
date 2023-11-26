@@ -5,9 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cập Nhật Trạng Thái Đơn Hàng</title>
+    <style>
+        h2 {
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button a {
+  text-decoration: none;
+  color: white;
+}
+
+button:hover {
+  background-color: darkgreen;
+}
+
+form select, form button {
+  margin-top: 10px;
+}
+
+p.success {
+  color: green;
+}
+
+p.error {
+  color: red;
+}
+    </style>
 </head>
 
 <body>
+
     <h2>Cập Nhật Trạng Thái Đơn Hàng</h2>
     <button type="button" style="text-align: center; background-color: green;">
     <a href="../?mod=order&act=list" style="text-decoration: none; color: white;">Quay lại</a>
