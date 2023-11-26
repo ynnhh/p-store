@@ -9040,7 +9040,7 @@ footer {
 
 .footer-distributed .footer-links {
     color: #ffffff;
-    margin: 20px 0 12px;
+    margin: 20px 0 12px -40px;
 }
 
 .footer-distributed .footer-links a {
