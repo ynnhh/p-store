@@ -17,6 +17,8 @@
             case 'feedback':
                 include_once 'controller/feedback.php';
                 break;
+            case 'order':
+                include_once 'view/page_orders.php';
 
             default:
                 # code...

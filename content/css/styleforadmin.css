@@ -1,0 +1,15 @@
+.btn-orders{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 15px;
+    border: 2px solid #80d4ae;
+    background-color: transparent;
+    color: #127f50;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.btn-orders:hover {
+    background-color: #86e4ba;
+    color: #1b734b;
+}
