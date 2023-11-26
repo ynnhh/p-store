@@ -18,10 +18,13 @@
                 <a href="?mod=user&act=edit&id=<?=$user['MaKhachHang']?>" class="btn btn-primary">Sửa thông tin</a>
                 </div>
                 <?php if($user['Admin']==1): ?> 
-                    <div class="col-md-4">
+                <div class="col-md-4">
                     <a href="../admin/?mod=category&act=list" class="btn btn-success">Trang Admin</a>
                 </div>
                 <?php endif; ?>
+                <div class="col-md-4">
+                    <a href="../site/view/trangthai.php" class="btn btn-success">Lịch sử đơn hàng</a>
+                </div>
                 <div class="col-md-4">
                 <a href="?mod=user&act=logout" class="btn btn-danger">Đăng xuất</a>
 
