@@ -50,26 +50,38 @@
                     </tbody>
 
                 </table>
+                </div>
+                <?php
+               
+        // Kiểm tra xem giỏ hàng có đơn hàng hay không
+        $isCartEmpty = empty($_SESSION['cart']);
+
+        // Nếu giỏ hàng không rỗng, hiển thị phần thanh toán
+        if (!$isCartEmpty) {
+            echo '
                 <div class="cart-payment mt-5 sticky-bottom z-1 bg-white">
                     <div class="row border border-1 py-4 align-items-center mt-3 shadow-lg">
                         <div class="col-sm-6">
                             <div class="cart-payment-left d-flex hstack gap-3">
-                                <a href="?" class="btn btn-info"><i class="fa fa-angle-left"></i>
-                                    Tiếp tục mua hàng</a>
-
+                                <a href="?" class="btn btn-info"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div
-                                class="cart-payment-right  d-flex align-items-center justify-content-between hstack gap-3">
+                            <div class="cart-payment-right d-flex align-items-center justify-content-between hstack gap-3">
                                 <h6 class="mb-0 text-truncate fs-5">Tổng thanh toán: </h6>
-                                <strong><?=number_format($sum,0, ",",",")." Đ"?></strong>
-                                <a href="?mod=cart&act=checkout" class="btn btn-success btn-block">Thanh toán
-                                </a>
+                                <strong>'.number_format($sum, 0, ",", ",").' Đ</strong>
+                                <a href="?mod=cart&act=checkout" class="btn btn-success btn-block">Thanh toán</a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>';
+        }
+        else{
+            echo '
+                <p style="font-size:40px; text-align:center">Không có sản phẩm trong giỏ hàng</p>';
+        }
+        ?>
+                
+            
             
         </main>

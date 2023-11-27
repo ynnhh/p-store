@@ -19,8 +19,6 @@
                 break;
             case 'order':
                 include_once 'view/page_orders.php';
-            case 'edit':
-                include_once 'view/page_orders_edit.php';
             default:
                 # code...
                 break;
