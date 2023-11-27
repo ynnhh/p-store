@@ -40,13 +40,20 @@
             padding: 0;
         }
 
-        li {
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
             border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
-            background-color: #f9f9f9;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
         }
 
         pre {
@@ -55,6 +62,7 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
+        
     </style>
 </head>
 <body>
@@ -105,22 +113,42 @@
                     <p style="color:green; font-weight: bold;">Trạng thái: <?php echo $order['TrangThai']; ?><br></p>
                     Ghi chú: <?php echo $order['GhiChu']; ?><br>
 
-                    <!-- Thêm phần hiển thị sản phẩm và số lượng -->
+                    <!-- Thêm phần hiển thị sản phẩm, số lượng, giá, và hình ảnh -->
                     <h3>Chi tiết đơn hàng:</h3>
-                    <?php
-                    $maDonHang = $order['MaDonHang'];
-                    $sqlSelectChiTiet = "SELECT sp.TenSanPham, ct.SoLuong FROM chitietdonhang ct
-                                         INNER JOIN sanpham sp ON ct.MaSanPham = sp.MaSanPham
-                                         WHERE ct.MaDonHang = :maDonHang";
-                    $stmtSelectChiTiet = $db->prepare($sqlSelectChiTiet);
-                    $stmtSelectChiTiet->bindParam(':maDonHang', $maDonHang);
-                    $stmtSelectChiTiet->execute();
-                    $chiTietDonHang = $stmtSelectChiTiet->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($chiTietDonHang as $chiTiet) {
-                        echo "Sản phẩm: {$chiTiet['TenSanPham']}, --- Số lượng: {$chiTiet['SoLuong']}<br>";
-                    }
-                    ?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                                <th>Hình ảnh</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $maDonHang = $order['MaDonHang'];
+                            $sqlSelectChiTiet = "SELECT sp.TenSanPham, sp.Gia, sp.HinhAnh, ct.SoLuong 
+                                                 FROM chitietdonhang ct
+                                                 INNER JOIN sanpham sp ON ct.MaSanPham = sp.MaSanPham
+                                                 WHERE ct.MaDonHang = :maDonHang";
+                            $stmtSelectChiTiet = $db->prepare($sqlSelectChiTiet);
+                            $stmtSelectChiTiet->bindParam(':maDonHang', $maDonHang);
+                            $stmtSelectChiTiet->execute();
+                            $chiTietDonHang = $stmtSelectChiTiet->fetchAll(PDO::FETCH_ASSOC);
+                            foreach ($chiTietDonHang as $chiTiet) {
+                                echo "<tr>";
+                                echo "<td>{$chiTiet['TenSanPham']}</td>";
+                                echo "<td>{$chiTiet['SoLuong']}</td>";
+                                echo "<td>{$chiTiet['Gia']}</td>";
+                                echo "<td><img src='../../content/img/{$chiTiet['HinhAnh']}' alt='{$chiTiet['TenSanPham']}' style='width: 50px; height: 50px;'></td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </li>
+                <br>
+                <hr>
             <?php endforeach; ?>
         </ul>
     </div>
