@@ -94,7 +94,7 @@
             alert('Vui lòng đăng nhập trước khi thanh toán.');
 
             // Chuyển hướng người dùng đến trang đăng nhập
-            window.location.href = 'view/page_login.php';
+            window.location.href = '?mod=user&act=login';
         } else {
             // Nếu người dùng đã đăng nhập, chuyển hướng đến trang thanh toán
             window.location.href = '?mod=cart&act=checkout';
