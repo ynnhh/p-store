@@ -94,29 +94,38 @@
                 <a href="?mod=page&act=category&id=1" class="btn btn-outline-dark my-3 ms-auto">Xem thêm</a>
             </div>
             <div class="row">
-                <?php
-                    foreach ($sp_nu as $sp):
-                ?>
-                <div class="col-md-3 ">
-                    <div class="shadow pb-3 container-img">
-                        <div class="product-img position-relative overflow-hidden">
-                            <a href="?mod=product&act=detail&id=<?=$sp['MaSanPham']?>">
-                            <img class="img-fluid " src="../content/img/<?=$sp['HinhAnh']?>" alt="" ></a>
-                            <div class="product-action text-center icons">
-                                <a class="btn btn-outline-dark btn-square" href="?mod=cart&act=add&id=<?=$sp['MaSanPham']?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                            </div>
-                        </div>
-                        
-                        <p class="text-capitalize"><b><?=$sp['TenSanPham']?></b></p>
-                        <div class="d-flex justify-content-around">
-                            <span class="text-danger fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
-                            <span class="text-muted"> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+            <?php
+            foreach ($sp_hot as $sp):
+            ?>
+            <div class="col-md-3 ">
+                <div class="shadow pb-3 container-img">
+                    <div class="product-img position-relative overflow-hidden">
+                        <a href="?mod=product&act=detail&id=<?=$sp['MaSanPham']?>">
+                            <img class="img-fluid " src="../content/img/<?=$sp['HinhAnh']?>" alt="">
+                        </a>
+                        <div class="product-action text-center icons">
+                            <?php
+                            // Kiểm tra xem người dùng đã đăng nhập hay chưa
+                            if (isset($_SESSION['user_id'])) {
+                                // Nếu đã đăng nhập, hiển thị nút thêm vào giỏ hàng
+                                echo '<a class="btn btn-outline-dark btn-square" href="?mod=cart&act=add&id='.$sp['MaSanPham'].'"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>';
+                            } else {
+                                // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                                echo '<a class="btn btn-outline-dark btn-square" href="?mod=page&act=login"><i class="fa fa-sign-in-alt"></i> Đăng nhập để mua hàng</a>';
+                            }
+                            ?>
+                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                         </div>
                     </div>
+                    <p class="text-capitalize"><b><?=$sp['TenSanPham']?></b></p>
+                    <div class="d-flex justify-content-around">
+                        <span class="text-danger fs-6 fw-bold"><?=number_format($sp['GiaKhuyenMai'], 0, ",", ",")?> đ</span>
+                        <span class="text-muted"> <del><?=number_format($sp['Gia'], 0, ",", ",")?> đ </del></span>
+                    </div>
                 </div>
-                <?php  endforeach; ?>
             </div>
+            <?php endforeach; ?>
+        </div>
         </div>
         <div class="text-center mt-5">
             <div class=" d-flex">
