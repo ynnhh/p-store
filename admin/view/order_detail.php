@@ -131,7 +131,7 @@
                                 <tr>
                                     <td><?=$sp['MaSanPham']?></td>
                                     <td><?=$sp['TenSanPham']?></td>
-                                    <td><?=$sp['Gia']?> đ</td>
+                                    <td><?=number_format($sp['Gia'], 0, ",", ".")." đ"?> đ</td>
                                     <td><img src="../../content/img/<?=$sp['HinhAnh']?>" width="60px" alt=""></td>
                                     <td><?=$sp['SoLuong']?></td>
                                 </tr>

@@ -1,0 +1,19 @@
+
+/* =--------------------Product detail------------------------------ */
+.price-detail{
+  display: flex;
+  background-color: #f1d3ed
+}
+.price {
+  margin-right: 10px;
+}
+/* -------------mô tả--------------------------- */
+.describe{
+    border:1px solid #ccc;
+    padding: 10px 20pxs;
+  }
+  .describe:hover{
+    background-color: rgb(176, 239, 81);
+  }
+  /* ----------------product detail end------------------------------------- */
+  

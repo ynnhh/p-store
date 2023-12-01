@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-    <script src="../content/js/countdown.js"></script>
     <link rel="stylesheet" href="../content/css/layout.css">
     <link rel="stylesheet" href="../content/css/style.css">
+    <link rel="stylesheet" href="../content/css/product_detail.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="sticky-top bg-white border">
+    <header class="sticky-top bg-white border pt-0">
         <!-- row-top -->
-        <!-- <div class="bg-danger">
+        <!-- <div class="bg-danger">  
             <div class="container text-white">
                 <div class="row">
                     <div class="col-md-6 pt-3">

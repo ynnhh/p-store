@@ -19,13 +19,23 @@
                         </div>
                         <small class="pt-1">(99 Đánh giá)</small>
                     </div>
-            <div class="price pt-3">
+            <div class="price-detail pt-3">
                 <!--Giá khuyến mãi:  -->
-                <p class="pr-10 fs-4 color-main fw-bolder "> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</p>
+                <p class="price pr-10 fs-4 color-main fw-bolder "> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</p>
                 <!--Giá gốc  -->
-                <p class="text-decoration-line-through text-muted fs-5"> <?=number_format($sp['Gia'],0, ",",",")?> đ </p>
+                <p class="price text-decoration-line-through text-muted fs-5"> <?=number_format($sp['Gia'],0, ",",",")?> đ </p>
             </div>
-            <p><?=$sp['MoTa'] ?>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nisi amet vitae? Doloremque eius doloribus beatae saepe eaque tempora, possimus suscipit repudiandae! Magnam tempore quo deserunt, quae minus doloribus doloremque?</p>
+            <p><?=$sp['MoTa'] ?>
+            <dl>
+                <dt>
+                    <dd>Bảo vệ da bằng titan Dioxide và kẽm oxit</dd>
+                    <dd>Chỉ số PA ++++ | Chống tia HEV, VIS, IR</dd>
+                    <dd>Công thức không có chất chống nắng hóa học, paraben, mùi tổng hợp và màu nhân tạo</dd>
+                    <dd>Mịn nhẹ trên da, không đóng thành vệt</dd>
+                    <dd> Bổng sung aloe vera làm dịu viêm và đỏ</dd>
+                </dt>
+            </dl>
+            </p>
             <form method="post" action="?mod=cart&act=add">
             <p>Số lượng: <input type="number" value=1 width="10px" name="So_luong">  </p>
             <!-- <input type=submit class="btn btn-danger border" name="product_add" value="Thuê ngay"> -->

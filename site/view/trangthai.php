@@ -106,7 +106,7 @@
             <?php foreach ($orders as $order) : ?>
                 <h2>Thông tin khách hàng:</h2>
                 <li>
-                    <pre>Họ và tên: <?php echo $customerInfo['HoTen']; ?> Số điện thoại: <?php echo $customerInfo['SDT']; ?> Địa chỉ: <?php echo $customerInfo['DiaChi']; ?></pre>
+                    <pre>Họ và tên: <?php echo $customerInfo['HoTen']; ?>  Số điện thoại: <?php echo $customerInfo['SDT']; ?>  Địa chỉ: <?php echo $customerInfo['DiaChi']; ?></pre>
                     Mã đơn hàng: <?php echo $order['MaDonHang']; ?><br>
                     Ngày đặt hàng: <?php echo $order['NgayDatHang']; ?><br>
                     Tổng tiền: <?php echo $order['TongTien']; ?><br>
