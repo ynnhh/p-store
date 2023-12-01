@@ -24,6 +24,10 @@
                 user_delete($id);
                 header('location: ?mod=user&act=list');
                 break;
+            
+            case 'logout':
+                unset($_SESSION['user']);
+                header('location: ../?mod=page&act=home');
 
             case 'edit':
                 $user=user_one_manage($id);

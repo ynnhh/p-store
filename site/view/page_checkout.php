@@ -174,9 +174,9 @@ if (!empty($userID)) {
                                     <p>Tổng Cộng <span><?= number_format($sum, 0, ",", ".") ?> VND</span></p>
 
                                     <!-- Phí giao hàng -->
-                                    <p>Phí Giao Hàng: <span>30,000 VND</span></p>
+                                    <p>Phí Giao Hàng: <span id="shipping-cost">30,000 VND</span></p>
 
-                                    <h4>Tổng Thanh Toán <span><?= number_format($sum + 30000, 0, ",", ".") ?> VND</span></h4>
+                                    <h4>Tổng Thanh Toán <span id="total-payment"><?= number_format($sum + 30000, 0, ",", ".") ?> VND</span></h4>
                                 </div>
                             </div>
 
@@ -215,10 +215,7 @@ if (!empty($userID)) {
                     <!-- Mẫu thanh toán kết thúc -->
                 </div>
 
-                <div class="col-lg-5" style="padding-left: 140px; padding-top: 150px">
-                    <!-- Ảnh bên phải -->
-                    <img id="payment-image" src="../content/img/thanhtoan1.jpg">
-                </div>
+               
             </div>
         </div>
     </div>
@@ -229,21 +226,38 @@ if (!empty($userID)) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-        function changePaymentImage() {
-            var paymentMethod = document.getElementById("payment-method").value;
-            var paymentImage = document.getElementById("payment-image");
 
-            // Thay đổi hình ảnh dựa trên phương thức thanh toán được chọn
-            if (paymentMethod === "wallet") {
-                paymentImage.src = "../content/img/thanhtoan2.jpg";
-            } else if (paymentMethod === "bank") {
-                paymentImage.src = "../content/img/thanhtoan3.jpg";
-            } else {
-                paymentImage.src = "../content/img/thanhtoan1.jpg";
-            }
+    <script>
+    function changeShippingCost() {
+        var shippingMethod = document.getElementById("shipping-method").value;
+
+        // Thiết lập giá trị phí giao hàng dựa trên phương thức được chọn
+        var shippingCost = 30000; // Phí mặc định
+        if (shippingMethod === "ghn") {
+            shippingCost = 40000;
+        } else if (shippingMethod === "ghtk") {
+            shippingCost = 30000;
+        } else if (shippingMethod === "hoa-toc") {
+            shippingCost = 50000;
         }
-    </script>
+
+        // Cập nhật phí giao hàng trên giao diện
+        document.getElementById("shipping-cost").innerText = shippingCost.toLocaleString() + " VND";
+console.log(document.getElementById("shipping-cost").innerText)
+        // Cập nhật tổng thanh toán
+        var sum = <?= $sum ?>; // Lấy giá trị $sum từ PHP
+        var totalPayment = sum + shippingCost;
+        document.getElementById("total-payment").innerText = totalPayment.toLocaleString() + ' VND';
+    }
+
+    // Gọi hàm khi trang tải xong và khi có sự thay đổi trong dropdown
+    document.addEventListener("DOMContentLoaded", function () {
+        changeShippingCost();
+
+        // Lắng nghe sự kiện khi có sự thay đổi trong dropdown
+        document.getElementById("shipping-method").addEventListener("change", changeShippingCost);
+    });
+</script>
 </body>
 
 </html>
