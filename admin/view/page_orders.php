@@ -58,7 +58,7 @@ $orders = $stmtSelectOrders->fetchAll(PDO::FETCH_ASSOC);
                         <td>
                             <!-- Chức năng quản lý -->
                             
-                            <a class="btn-orders" href="order_detail.php?order=<?php echo $order['MaDonHang']; ?>">Xem chi tiết</a>
+                            <a class="btn-orders" href="view/order_detail.php?order=<?php echo $order['MaDonHang']; ?>">Xem chi tiết</a>
                             <!-- Thêm các chức năng quản lý khác nếu cần -->
                         </td>
                     </tr>

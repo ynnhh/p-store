@@ -42,9 +42,9 @@
         </div> -->
         <!-- Categories End -->
 
-        <!-- sale Products -->
+        <!-- --------sale Products -------------------------->
         <div class="text-center mt-5">
-            <!-- <h3 class="my-3">SẢN PHẨM BÁN CHẠY</h3> -->
+                <!-- ---countdown--------------- -->
                 <div class="container-countdown">
                     <h3 id="headline">FlashSale</h3>
                     <div id="countdown">
@@ -66,21 +66,30 @@
                 <?php
                     foreach ($sp_hot as $sp):
                 ?>
-                <div class="col-md-3 ">
-                    <div class="shadow pb-3 container-img">
-                        <div class="product-img position-relative overflow-hidden">
+                <div class="col-md-3 mb-3">
+                    <div class="shadow pb-3 container-img border">
+                        <div class="product-img ">
                             <a href="?mod=product&act=detail&id=<?=$sp['MaSanPham']?>">
+                            <div class="sale position-absolute">
+                                <p class="sale-content border bg-main text-white d-inline px-2 py-1 fw-bold">
+                                    - 15 %
+                                </p>
+                            </div>
+                            
                             <img class="img-fluid " src="../content/img/<?=$sp['HinhAnh']?>" alt="" ></a>
                             <div class="product-action text-center icons">
                                 <a class="btn btn-outline-dark btn-square" href="?mod=cart&act=add&id=<?=$sp['MaSanPham']?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                             </div>
                         </div>
-                        
-                        <p class="text-capitalize"><b><?=$sp['TenSanPham']?></b></p>
-                        <div class="d-flex justify-content-around">
-                            <span class="text-danger fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
-                            <span class="text-muted"> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+                        <div class="product-content">
+                            <p class="text-capitalize box text-start">
+                                <?=$sp['TenSanPham']?>
+                            </p>
+                            <div class="d-flex justify-content-around">
+                                <span class="color-main fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
+                                <span class="text-muted"> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,32 +104,32 @@
             </div>
             <div class="row">
             <?php
-            foreach ($sp_hot as $sp):
+                foreach ($sp_nu as $sp):
             ?>
-            <div class="col-md-3 ">
-                <div class="shadow pb-3 container-img">
-                    <div class="product-img position-relative overflow-hidden">
+            <div class="col-md-3 mb-3">
+                <div class="shadow pb-3 container-img border">
+                    <div class="product-img ">
                         <a href="?mod=product&act=detail&id=<?=$sp['MaSanPham']?>">
-                            <img class="img-fluid " src="../content/img/<?=$sp['HinhAnh']?>" alt="">
-                        </a>
+                        <div class="sale position-absolute">
+                            <p class="sale-content border bg-main text-white d-inline px-2 py-1 fw-bold">
+                                - 15 %
+                            </p>
+                        </div>
+                        
+                        <img class="img-fluid " src="../content/img/<?=$sp['HinhAnh']?>" alt="" ></a>
                         <div class="product-action text-center icons">
-                            <?php
-                            // Kiểm tra xem người dùng đã đăng nhập hay chưa
-                            if (isset($_SESSION['user_id'])) {
-                                // Nếu đã đăng nhập, hiển thị nút thêm vào giỏ hàng
-                                echo '<a class="btn btn-outline-dark btn-square" href="?mod=cart&act=add&id='.$sp['MaSanPham'].'"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>';
-                            } else {
-                                // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
-                                echo '<a class="btn btn-outline-dark btn-square" href="?mod=page&act=login"><i class="fa fa-sign-in-alt"></i> Đăng nhập để mua hàng</a>';
-                            }
-                            ?>
+                            <a class="btn btn-outline-dark btn-square" href="?mod=cart&act=add&id=<?=$sp['MaSanPham']?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
                             <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                         </div>
                     </div>
-                    <p class="text-capitalize"><b><?=$sp['TenSanPham']?></b></p>
-                    <div class="d-flex justify-content-around">
-                        <span class="text-danger fs-6 fw-bold"><?=number_format($sp['GiaKhuyenMai'], 0, ",", ",")?> đ</span>
-                        <span class="text-muted"> <del><?=number_format($sp['Gia'], 0, ",", ",")?> đ </del></span>
+                    <div class="product-content">
+                        <p class="text-capitalize box text-start">
+                            <?=$sp['TenSanPham']?>
+                        </p>
+                        <div class="d-flex justify-content-around">
+                            <span class="color-main fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
+                            <span class="text-muted"> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -136,21 +145,30 @@
                 <?php 
                     foreach ($sp_nam as $sp):
                 ?>
-                <div class="col-md-3 ">
-                    <div class="shadow pb-3 container-img">
-                        <div class="product-img position-relative overflow-hidden">
+                <div class="col-md-3 mb-3">
+                    <div class="shadow pb-3 container-img border">
+                        <div class="product-img ">
                             <a href="?mod=product&act=detail&id=<?=$sp['MaSanPham']?>">
+                            <div class="sale position-absolute">
+                                <p class="sale-content border bg-main text-white d-inline px-2 py-1 fw-bold">
+                                    - 15 %
+                                </p>
+                            </div>
+                            
                             <img class="img-fluid " src="../content/img/<?=$sp['HinhAnh']?>" alt="" ></a>
                             <div class="product-action text-center icons">
                                 <a class="btn btn-outline-dark btn-square" href="?mod=cart&act=add&id=<?=$sp['MaSanPham']?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                             </div>
                         </div>
-                        
-                        <p class="text-capitalize"><b><?=$sp['TenSanPham']?></b></p>
-                        <div class="d-flex justify-content-around">
-                            <span class="text-danger fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
-                            <span class="text-muted"> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+                        <div class="product-content">
+                            <p class="text-capitalize box text-start">
+                                <?=$sp['TenSanPham']?>
+                            </p>
+                            <div class="d-flex justify-content-around">
+                                <span class="color-main fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
+                                <span class="text-muted"> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -166,21 +184,30 @@
                 <?php
                     foreach ($sp_treem as $sp):
                 ?>
-                <div class="col-md-3 ">
-                    <div class="shadow pb-3 container-img">
-                        <div class="product-img position-relative overflow-hidden">
+                <div class="col-md-3 mb-3">
+                    <div class="shadow pb-3 container-img border">
+                        <div class="product-img ">
                             <a href="?mod=product&act=detail&id=<?=$sp['MaSanPham']?>">
+                            <div class="sale position-absolute">
+                                <p class="sale-content border bg-main text-white d-inline px-2 py-1 fw-bold">
+                                    - 15 %
+                                </p>
+                            </div>
+                            
                             <img class="img-fluid " src="../content/img/<?=$sp['HinhAnh']?>" alt="" ></a>
                             <div class="product-action text-center icons">
                                 <a class="btn btn-outline-dark btn-square" href="?mod=cart&act=add&id=<?=$sp['MaSanPham']?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                             </div>
                         </div>
-                        
-                        <p class="text-capitalize"><b><?=$sp['TenSanPham']?></b></p>
-                        <div class="d-flex justify-content-around">
-                            <span class="text-danger fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
-                            <span class="text-muted"> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+                        <div class="product-content">
+                            <p class="text-capitalize box text-start">
+                                <?=$sp['TenSanPham']?>
+                            </p>
+                            <div class="d-flex justify-content-around">
+                                <span class="color-main fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
+                                <span class="text-muted"> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+                            </div>
                         </div>
                     </div>
                 </div>

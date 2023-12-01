@@ -1,7 +1,7 @@
 <footer class="footer-distributed">
         <!-- Phần footer-left -->
         <div class="footer-left">
-            <h3>PRIS<span>TINE</span></h3>
+            <img src="../content/img/logo.png" alt="" width="50%">
             <p class="footer-links">
                 <a href="#">Trang chủ</a> |
                 <a href="?mod=page&act=category&id=1">Sản phẩm</a> |
@@ -58,7 +58,6 @@
             </div>
         </div>
     </footer>
-    
-
+    <script src="../content/js/countdown.js"></script>
 </body>
 </html>

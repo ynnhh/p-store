@@ -17,24 +17,33 @@
             </div>
         </div>
         <div class="col-md-9">
-        <div class="text-center mt-2">
+        <div class="text-center mt-4">
             <div class="row">
                 <?php foreach($sp_dm as $sp):?>
-                <div class="col-md-4 my-3 ">
-                <div class="shadow pb-3 container-img">
-                        <div class="product-img position-relative overflow-hidden">
+                <div class="col-md-4 mb-3">
+                    <div class="shadow pb-3 container-img border">
+                        <div class="product-img ">
                             <a href="?mod=product&act=detail&id=<?=$sp['MaSanPham']?>">
+                            <div class="sale position-absolute">
+                                <p class="sale-content border bg-main text-white d-inline px-2 py-1 fw-bold">
+                                    - 15 %
+                                </p>
+                            </div>
+                            
                             <img class="img-fluid " src="../content/img/<?=$sp['HinhAnh']?>" alt="" ></a>
                             <div class="product-action text-center icons">
                                 <a class="btn btn-outline-dark btn-square" href="?mod=cart&act=add&id=<?=$sp['MaSanPham']?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                             </div>
                         </div>
-                        
-                        <p class="text-capitalize"><b><?=$sp['TenSanPham']?></b></p>
-                        <div class="d-flex justify-content-around">
-                            <span class="text-danger fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
-                            <span> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+                        <div class="product-content">
+                            <p class="text-capitalize box text-start">
+                                <?=$sp['TenSanPham']?>
+                            </p>
+                            <div class="d-flex justify-content-around">
+                                <span class="color-main fs-6 fw-bold"> <?=number_format($sp['GiaKhuyenMai'],0, ",",",")?> đ</span>
+                                <span class="text-muted"> <del> <?=number_format($sp['Gia'],0, ",",",")?> đ </del></span>
+                            </div>
                         </div>
                     </div>
                 </div>

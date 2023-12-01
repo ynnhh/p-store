@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        .stepper {
+            position: relative;
+            justify-content: space-between;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            flex-wrap: nowrap;
+            display: flex;
+            align-items: center;
+        }
+        .stepper__line {
+            position: absolute;
+            top: 40%;
+            left: 20px;
+            height: 4px;
+            width: 90%;
+            background-color: rgb(201, 201, 201);
+        } 
+        cursor-default-hover {
+            cursor: url(data:image/png;base64,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) 4 1, auto !important;
+        }
+        .stepper__step {
+            width: 140px;
+            text-align: center;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: default;
+            z-index: 1;
+        }     
+        .stepper__step-icon {
+            border-color: #2dc258;
+            border: 10px solid #2dc258;
+            clip-path: circle(60px);
+            background-color: rgb(209, 209, 209);
+            padding: 40px;
+        } 
+    
+        element.style {
+            background: rgb(224, 224, 224);
+        }
+        element.style {
+            width: calc((100% - 140px) * 0.25);
+            background: rgb(45, 194, 88);
+        }
+        
+    </style>
+</head>
+<body>
+    <hr>
+    <div class="stepper mx-5">
+        <div class="stepper__step">
+            <div class="stepper__step-icon ">
+                <i class="fa-solid fa-check-to-slot fs-1 text-center"></i>
+            </div>
+            <div class="stepper__step-text">Đơn hàng đã đặt</div>
+            <div class="stepper__step-date">21:20 29-11-2023</div>
+        </div>
+        <div class="stepper__step">
+            <div class="stepper__step-icon ">
+                <i class="fa-solid fa-hourglass-half fs-1 text-center"></i> 
+            </div>
+            <div class="stepper__step-text">Đơn hàng đã đặt</div>
+            <div class="stepper__step-date">21:20 29-11-2023</div>
+        </div>
+        <div class="stepper__step">
+            <div class="stepper__step-icon ">
+                <i class="fa-solid fa-truck fs-1 text-center"></i>
+            </div>
+            <div class="stepper__step-text">vận chuyển</div>
+            <div class="stepper__step-date">21:20 29-11-2023</div>
+        </div>
+        <div class="stepper__step">
+            <div class="stepper__step-icon ">
+                <i class="fa-solid fa-truck-ramp-box fs-1  "></i>
+            </div>
+            <div class="stepper__step-text">Đơn hàng đã đặt</div>
+            <div class="stepper__step-date">21:20 29-11-2023</div>
+        </div>
+        <div class="stepper__step">
+            <div class="stepper__step-icon ">
+                <i class="fa-solid fa-star fs-1  "></i>
+            </div>
+            <div class="stepper__step-text">Đơn hàng đã đặt</div>
+            <div class="stepper__step-date">21:20 29-11-2023</div>
+        </div>
+        <div class="stepper__line">
+
+        </div>
+    </div>
+</body>
+</html>

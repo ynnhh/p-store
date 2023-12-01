@@ -6,7 +6,7 @@
     }
 
     function product_category_limit($id) {
-        $sql="SELECT * FROM SanPham WHERE MaDanhMuc=? Limit 0,4";
+        $sql="SELECT * FROM SanPham WHERE MaDanhMuc=? Limit 0,8";
         return pdo_query($sql,$id);
     }
 
