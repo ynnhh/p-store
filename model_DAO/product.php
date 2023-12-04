@@ -1,7 +1,7 @@
 <?php
     include_once 'pdo.php';
     function product_hot() {
-        $sql="SELECT * FROM SanPham WHERE Hot=1";
+        $sql="SELECT * FROM SanPham WHERE Hot=1 Limit 0,8";
         return pdo_query($sql);
     }
 
