@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../content/css/layout.css">
     <link rel="stylesheet" href="../content/css/style.css">
     <link rel="stylesheet" href="../content/css/product_detail.css">
+    <script src="../content/js/countdown.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -65,7 +66,7 @@
                                 <i class="fa-solid fa-bag-shopping fw-bolder  text-dark fs-4"></i>
                             </a>
                             <div class="">
-                                <span id="amount-cart" class="text-white  position-absolute top-0 start-75 translate-middle bg-danger px-2 rounded-circle">
+                                <span id="amount-cart" class="text-white position-absolute top-0 start-75 translate-middle bg-main px-2 rounded-circle">
                                    <?php
                                    // đếm số lượng sản phẩm trong session
                                     if (isset($_SESSION['cart'])) {
@@ -101,13 +102,13 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="../content/img/banner0.jpg" class="d-block w-100" alt="...">
+                    <img src="../content/img/banner0.png" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
                     <img src="../content/img/banner1.jpg" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="../content/img/banner0.jpg" class="d-block w-100" alt="...">
+                    <img src="../content/img/banner0.png" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

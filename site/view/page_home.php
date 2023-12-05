@@ -219,7 +219,7 @@
     </main>
     
     <!-- footer -->
-    <div class="bg-dark mt-5">
+    <!-- <div class="bg-dark mt-5">
         <div class=" bg-dark p-5 text-center">
             <p for="newsletter1" class="text-white mx-5">Nhập Email để nhận mã khuyến mãi </p>
             <div class="d-flex justify-content-center">
@@ -227,7 +227,7 @@
                 <button class="btn bg-main bg-opacity-75 rounded-0 " type="button">Đăng ký</button>
               </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- ---------------------------------------------------- -->
 

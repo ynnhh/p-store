@@ -58,6 +58,5 @@
             </div>
         </div>
     </footer>
-    <script src="../content/js/countdown.js"></script>
 </body>
 </html>

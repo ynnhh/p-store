@@ -4,7 +4,11 @@
     extract($_REQUEST);
     if(isset($act)) {
         switch($act) {
+            case 'popup':
+                include_once 'view/popup.php';
+                break;
             case 'home':
+                
                 $dsdm=category_list();
                 //print_r($dsdm);
                 $sp_hot=product_hot();
