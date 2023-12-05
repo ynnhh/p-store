@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../content/css/layout.css">
     <link rel="stylesheet" href="../content/css/style.css">
     <link rel="stylesheet" href="../content/css/product_detail.css">
+    <script src="../content/js/countdown.js"></script>
 </head>
 <body>
     <!-- Header -->

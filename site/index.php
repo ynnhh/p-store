@@ -18,6 +18,12 @@
             case 'product':
                 include_once 'controller/product.php';
                 break;
+            case 'changepass':
+                include_once "controller/reset_password_process.php";
+                break;
+            case 'resetpass':
+                include_once "view/forget-password.php";
+                break;
         }
     } else {
         header('location: ?mod=page&act=home');

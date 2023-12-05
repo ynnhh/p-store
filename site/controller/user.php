@@ -67,6 +67,11 @@
                 include_once 'view/page_user_update.php';
                 include_once 'view/template_footer.php';
             break;
-
+            
+            case "forget":
+                include_once 'view/template_header.php';
+                include_once 'view/forget-password.php';
+                include_once 'view/template_footer.php';
+            break;
         }
     }

@@ -10,7 +10,7 @@
                         <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
                         <input type="password" class="form-control border border-primary" name="pass">
                     </div>
-                    <p class="small"><a class="text-primary" href="../site/view/forget-password.php">Quên mật khẩu?</a></p>
+                    <p class="small"><a class="text-primary" href="?mod=user&act=forget">Quên mật khẩu?</a></p>
                     <div class="d-grid">
                         <button class="btn btn-danger" type="submit" name="login_submit">Đăng nhập</button>
                     </div>
