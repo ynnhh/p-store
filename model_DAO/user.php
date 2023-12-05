@@ -16,10 +16,16 @@
         VALUES(?,?,?,?,?,?)";
         return pdo_execute($sql,$name,$email,$pass,$phone,$address,$image);
     }
+
     function user_edit($id,$name,$email,$address,$phone,$image){
         $sql="UPDATE KhachHang SET HoTen=?, Email=?, DiaChi=?, SDT=?, Anh=?
         WHERE MaKhachHang=?";
         return pdo_execute($sql,$name,$email,$address,$phone,$image,$id);
+    }
+    function user_change_pass($id, $new_pass) {
+        $sql = "UPDATE KhachHang SET MatKhau = :new_pass WHERE MaKhachHang = :id";
+        $params = array(':new_pass' => $new_pass, ':id' => $id);
+        return pdo_executed($sql, $params);
     }
 
     

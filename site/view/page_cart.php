@@ -87,7 +87,7 @@
     <script>
     function checkLoginAndCheckout() {
         // Kiểm tra xem người dùng đã đăng nhập hay chưa (sử dụng biến session, có thể thay thế bằng phương thức khác nếu cần)
-        var isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+        var isLoggedIn = <?php echo isset($_SESSION['user']) ? 'true' : 'false'; ?>;
 
         if (!isLoggedIn) {
             // Nếu người dùng chưa đăng nhập, hiển thị hộp thoại thông báo

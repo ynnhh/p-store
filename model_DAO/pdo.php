@@ -32,6 +32,19 @@ function pdo_execute($sql){   // function thực thi
     }
 }
 
+/* ====================thay đổi mật khẩu==================== */
+function pdo_executed($sql, $args = array()) {
+    try {
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($args);
+        return $stmt;
+    } catch (PDOException $e) {
+        throw $e;
+    } finally {
+        unset($conn);
+    }
+}
 /**
  * Thực thi câu lệnh sql truy vấn dữ liệu (SELECT)
  * @param string $sql câu lệnh sql

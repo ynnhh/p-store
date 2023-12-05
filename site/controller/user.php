@@ -23,6 +23,7 @@
                 $id=$_SESSION['user']['MaKhachHang'];
                 $user=user_one($id);
                 include_once 'view/template_header.php';
+                include_once 'view/page_info_template.php';
                 include_once 'view/page_info.php';
                 include_once 'view/template_footer.php';
             break;
@@ -51,8 +52,9 @@
                 include_once 'view/template_footer.php';
             break;
 
-            case "edit":
+            case 'edit':
                 $user=user_one($id);
+                //print_r($user);
                 if(isset($edit_submit)){
                     if($_FILES['image']['name']!=null){
                         user_edit($id,$name,$email,$address,$phone,$_FILES['image']['name']);
@@ -64,14 +66,38 @@
                     header('location: ?mod=user&act=info');
                 }
                 include_once 'view/template_header.php';
+                include_once 'view/page_info_template.php';
                 include_once 'view/page_user_update.php';
                 include_once 'view/template_footer.php';
             break;
+
+            case 'pass':
+                $user = user_one($id);
+                //print_r($user);
+                
+                // Kiểm tra nếu form đã được gửi đi
+                // kiểm tra thông tin
+                if(isset($edit_submit)){                
+                    $old_pass = $_POST['old_pass'];
+                    $new_pass = $_POST['new_pass'];
+                    $re_new_pass = $_POST['re_new_pass'];
             
-            case "forget":
-                include_once 'view/template_header.php';
-                include_once 'view/forget-password.php';
-                include_once 'view/template_footer.php';
-            break;
+                    if ($old_pass != $user['MatKhau']) {
+                        echo '<div class="alert alert-warning">Mật khẩu cũ nhập không chính xác, đảm bảo đã tắt Caps lock.</div>';
+                    } else if ($new_pass != $re_new_pass) {
+                        echo '<div class="alert alert-warning">Nhập lại mật khẩu mới không khớp, đảm bảo đã tắt Caps lock.</div>'; 
+                    } else {
+                        user_change_pass($id, $new_pass);
+                        // Hiển thị thông báo và tải lại trang
+                        echo '<div class="alert alert-success">Đổi mật khẩu thành công!</div>';
+                        header('location: ?mod=user&act=info');
+                    } 
+                }
+                    include_once 'view/template_header.php';
+                    include_once 'view/page_info_template.php';
+                    include_once 'view/page_change_pass.php';
+                    include_once 'view/template_footer.php';
+                break;
+
         }
     }
